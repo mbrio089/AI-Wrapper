@@ -3,7 +3,7 @@ trigger:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: 'Cloud-Umgebung digit.cologne'
+  azureSubscription: 'KI-Service'
 
   # Web app name
   webAppName: 'KI-Bank-Trainer'
