@@ -1,0 +1,106 @@
+@media only screen and (max-width: 980px) {
+  .App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 1% 5%;
+    box-sizing: border-box;
+  }
+}
+
+@media only screen and (max-width: 1600px) and (min-width: 980px) {
+  .App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 1% 10%;
+    box-sizing: border-box;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 1% 25%;
+    box-sizing: border-box;
+  }
+}
+
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dialog-container {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dialog {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+form {
+  /* max-width: 800px; */
+  margin: 0 auto;
+  display: flex;
+  /* flex-direction: column; */
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  margin-right: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+button {
+  padding: 10px;
+  background-color: #032b4e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 2px;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.dialog-container p {
+  margin-bottom: 10px;
+}
+
+.dialog-container p.user {
+  color: #032b4e;
+  background-color: #ddd;
+  font-weight: 600;
+  padding: 15px;
+  border-radius: 2px;
+}
+
+.dialog-container p.ai {
+  color: #032b4e;
+  padding: 15px;
+}
+
+.dialog-container p.error {
+  color: red;
+}
