@@ -3,7 +3,8 @@ import axios from 'axios';
 import './App.css';
 import LoadingBar from './components/LoadingBar';
 import WelcomeBox from './components/WelcomeBox';
-import AudioRecorder from './components/AudioRecorder'; // Neue Komponente
+import AudioRecorder from './components/AudioRecorder';
+import ListenerBar from './components/ListenerBar';
 
 function App() {
   const [prompt, setPrompt] = useState('');
@@ -11,6 +12,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId, setConversationId] = useState(null);
   const dialogRef = useRef(null);
+  const [isRecording, setIsRecording] = useState(false);
 
   const handleSubmit = async (e, audioBlob = null) => {
     e.preventDefault();
@@ -86,12 +88,12 @@ function App() {
       });
       
       setPrompt(transcriptionResponse.data.text);
-      handleSubmit({ preventDefault: () => {} });
+      await handleSubmit({ preventDefault: () => {} }, audioBlob); // Übergabe von audioBlob an handleSubmit und Warten auf die Antwort
     } catch (error) {
       console.error('Transcription error:', error);
       setDialog((prev) => [...prev, { type: 'error', text: 'Fehler bei der Audiotranskription.' }]);
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); // Verschieben des setIsLoading(false) in den finally-Block
     }
   };
 
@@ -112,6 +114,7 @@ function App() {
         </div>
         <div className="form-container">
           {isLoading && <LoadingBar />}
+          <ListenerBar isRecording={isRecording} />
           <form onSubmit={handleSubmit}>
             <textarea
               value={prompt}
@@ -123,7 +126,7 @@ function App() {
               <button type="submit" disabled={isLoading || prompt.trim() === ''}>
                 {isLoading ? 'Lädt...' : 'Nachricht senden'}
               </button>
-              <AudioRecorder onRecordingComplete={handleAudioRecordingComplete} />
+              <AudioRecorder onRecordingComplete={handleAudioRecordingComplete} setIsRecording={setIsRecording} />
             </div>
           </form>
         </div>
