@@ -38,7 +38,7 @@ function App() {
     setDialog((prev) => [...prev, { type: 'user', text: userInput }]);
 
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/llm`, {
+      const res = await axios.post(`https://ki-bank-trainer-e7a3a4cpc3h3gqbz.germanywestcentral-01.azurewebsites.net/api/llm`, {
         prompt: `Du bist ein erfahrener Trainer namens Tom Turbo für Kundengespräche in Banken. Deine Aufgabe ist es, Bankmitarbeiter durch Rollenspiele und Feedback in der Kunst der Kundenberatung zu schulen. Befolge diese Anweisungen:
         Stelle dich zu Beginn vor und erkläre kurz deine Rolle als Trainer.
         Frage den Benutzer, ob er als Kunde oder als Bankmitarbeiter agieren möchte.
