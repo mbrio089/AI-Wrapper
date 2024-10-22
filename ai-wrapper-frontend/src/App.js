@@ -23,7 +23,7 @@ function App() {
       try {
         const formData = new FormData();
         formData.append('audio', audioBlob, 'audio.webm');
-        const transcriptionResponse = await axios.post(`${process.env.REACT_APP_API_URL}/api/speech-to-text`, formData, {
+        const transcriptionResponse = await axios.post(`https://ki-bank-trainer-e7a3a4cpc3h3gqbz.germanywestcentral-01.azurewebsites.net/api/speech-to-text`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
         userInput = transcriptionResponse.data.text;
@@ -81,7 +81,7 @@ function App() {
       const formData = new FormData();
       formData.append('audio', audioBlob, 'audio.webm');
       
-      const transcriptionResponse = await axios.post(`${process.env.REACT_APP_API_URL}/api/speech-to-text`, formData, {
+      const transcriptionResponse = await axios.post(`https://ki-bank-trainer-e7a3a4cpc3h3gqbz.germanywestcentral-01.azurewebsites.net/api/speech-to-text`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       
