@@ -109,7 +109,8 @@ app.post('/api/speech-to-text', upload.single('audio'), async (req, res) => {
 
     const result = await fal.subscribe("fal-ai/wizper", {
       input: {
-        audio_url: fileUrl
+        audio_url: fileUrl,
+        auto_language: true
       },
     });
 
