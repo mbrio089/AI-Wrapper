@@ -1,0 +1,8 @@
+{
+    "routes": [
+      {
+        "route": "/api/*",
+        "rewrite": "https://ki-bank-trainer-e7a3a4cpc3h3gqbz.germanywestcentral-01.azurewebsites.net"
+      }
+    ]
+  }
