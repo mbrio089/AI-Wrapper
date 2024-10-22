@@ -12,7 +12,7 @@ const path = require('path');
 
 // CORS-Konfiguration
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://10.130.8.36:3000', 'https://digit.cologne'],
+  origin: ['http://localhost:3000', 'https://white-hill-04b31d903.5.azurestaticapps.net', 'https://digit.cologne'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
