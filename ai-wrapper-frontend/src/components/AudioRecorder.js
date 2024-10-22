@@ -37,9 +37,10 @@ const AudioRecorder = ({ onRecordingComplete }) => {
   };
 
   return (
-    <button onClick={isRecording ? stopRecording : startRecording}>
-      {isRecording ? 'Stop Recording' : 'Start Recording'}
-    </button>
+    // <button onClick={isRecording ? stopRecording : startRecording}>
+    //   {isRecording ? 'Stop Recording' : 'Start Recording'}
+    // </button>
+    <div></div>
   );
 };
 
