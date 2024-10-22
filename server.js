@@ -55,20 +55,20 @@ const conversations = new Map();
 
 app.post('/api/llm', cors(corsOptions), async (req, res) => {
   const { prompt, userPrompt, conversationId } = req.body;
-  
+
   try {
     let conversation;
     if (!conversationId || !conversations.has(conversationId)) {
       conversation = {
         id: Date.now().toString(),
-        messages: [{role: 'system', content: prompt}]
+        messages: [{ role: 'system', content: prompt }]
       };
       conversations.set(conversation.id, conversation);
     } else {
       conversation = conversations.get(conversationId);
     }
 
-    conversation.messages.push({role: 'user', content: userPrompt});
+    conversation.messages.push({ role: 'user', content: userPrompt });
 
     const fullPrompt = conversation.messages.map(msg => `${msg.role}: ${msg.content}`).join('\n');
 
@@ -86,7 +86,7 @@ app.post('/api/llm', cors(corsOptions), async (req, res) => {
       },
     });
 
-    conversation.messages.push({role: 'assistant', content: result.output});
+    conversation.messages.push({ role: 'assistant', content: result.output });
 
     res.json({
       output: result.output,
@@ -110,7 +110,8 @@ app.post('/api/speech-to-text', upload.single('audio'), async (req, res) => {
     const result = await fal.subscribe("fal-ai/wizper", {
       input: {
         audio_url: fileUrl,
-        auto_language: true
+        task: transcribe,
+        language: de
       },
     });
 
